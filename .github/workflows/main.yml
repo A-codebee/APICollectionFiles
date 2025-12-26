@@ -1,0 +1,42 @@
+name : Run Postman tests
+
+on:
+  push: 
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "00 7 * * *"  #7AM UK time
+    - cron: "00 21 * * *" #9PM UK time
+
+jobs:
+  run-postman-tests:
+   runs-on: ubuntu-latest
+   
+   steps:
+    - name: Checkout code
+      uses: actions/checkout@v6.0.1
+
+    - name: Install Node js and npm
+      uses: actions/setup-node@v6.1.0
+      with: 
+        node-version: '22'
+
+    - name: install npm and htmlextra globally
+      run: npm install -g newman
+           npm install -g newman-repoter-htmlextra
+
+    - name: Run the postman collection
+      run: |
+           newman run E2E_flow_API_Tests.postman_collection.json \
+           -e QA.postman_environment.json \
+           -r cli,htmlextra
+
+    - name: Newman report
+      uses: actions/upload-artifact@v6.0.0
+      with: 
+           name: Newman report
+           path: newman/*.html
+    
+           
+   
+        
