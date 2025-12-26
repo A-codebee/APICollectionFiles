@@ -29,7 +29,8 @@ jobs:
       run: |
            newman run E2E_flow_API_Tests.postman_collection.json \
            -e QA.postman_environment.json \
-           -r cli,htmlextra
+           -r cli,htmlextra \
+           -x
 
     - name: Newman report
       if: always() #Ensure that reports are generated even if any of the tests fail
