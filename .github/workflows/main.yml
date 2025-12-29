@@ -30,6 +30,7 @@ jobs:
            newman run E2E_flow_API_Tests.postman_collection.json \
            -e QA.postman_environment.json \
            -r cli,htmlextra \
+           --reporter-htmlextra-export ./newman/index.html
            -x
 
     - name: Newman report
