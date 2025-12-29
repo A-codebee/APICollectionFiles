@@ -53,11 +53,11 @@ jobs:
       with:
         server_address: smtp.gmail.com
         server_port: 465
-        username: $ {{secrets.EMAIL_USERNAME}}
-        password: $ {{secrets.EMAIL_PASSWORD}}
+        username: ${{secrets.EMAIL_USERNAME}}
+        password: ${{secrets.EMAIL_PASSWORD}}
         subject: E2E Test Execution Notification
-        from: $ {{secrets.EMAIL_USERNAME}}
-        to: $ {{secrets.EMAIL_USERNAME}}
+        from: ${{secrets.EMAIL_USERNAME}}
+        to: ${{secrets.EMAIL_USERNAME}}
         body: |
               Hi,
               Your E2E tests have been executed and the results are published to the URL below :
