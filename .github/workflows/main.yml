@@ -10,7 +10,8 @@ on:
 
 jobs:
   run-postman-tests:
-   runs-on: EC2
+   runs-on: ubuntu-latest
+   #runs-on: EC2
    
    steps:
     - name: Checkout code
