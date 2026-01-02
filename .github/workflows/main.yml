@@ -4,9 +4,9 @@ on:
   push: 
     branches: [main]
   workflow_dispatch:
-  schedule:
-    - cron: "00 7 * * *"  #7AM UK time
-    - cron: "00 21 * * *" #9PM UK time
+ # schedule:
+   # - cron: "00 7 * * *"  #7AM UK time
+    #- cron: "00 21 * * *" #9PM UK time
 
 jobs:
   run-postman-tests:
@@ -63,7 +63,7 @@ jobs:
               Hi,
               Your E2E tests have been executed and the results are published to the URL below :
               https://a-codebee.github.io/APICollectionFiles/
-        attachments: newman/index.html
+        #attachments: newman/index.html
            
    
         
